@@ -1,0 +1,7 @@
+# File: self.site.yml
+dcp:
+  root: /var/www/html/web
+  uri: http://localhost:8080
+ddev:
+  root: /var/www/html/web
+  uri: http://gd-memory-poc.ddev.site
