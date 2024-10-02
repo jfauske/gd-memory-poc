@@ -1,5 +1,21 @@
 # A proof of concept for GD memory issues with Drupal on Alpine vs Debian
 
+## UPDATE: 
+The issue described here is resolved with configuring/building the PHP GD extension with the --with-external-gd flag
+... so got nothing to do with Alpine vs Debian.
+
+For alpine based, something like this would do:
+```sh
+apk add --no-cache ... gd-dev ... \
+&& docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp --with-avif --with-external-gd
+```
+
+For debian based, something like this will do:
+```sh
+apt-get install ... libgd-dev ... \
+&& docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp --with-avif --with-external-gd
+```
+
 difference in distro packages?
 difference in libs/binaries built from source?
 glibc vs musl?
